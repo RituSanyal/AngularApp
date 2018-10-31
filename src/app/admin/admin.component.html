@@ -1,0 +1,31 @@
+<h2>Enter, Edit or Delete Student Records</h2>
+<form #studentForm="ngForm" (ngSubmit)="onSubmit(studentForm)">
+    <input type="hidden" name="$key" [(ngModel)]="studentService.selectedStudent.$key">
+    <div>
+    <label>Name: </label>
+    <input name="name" [(ngModel)]="studentService.selectedStudent.name" placeholder="Student Name" required>
+    </div>
+    <div>
+        <label>ID: </label>
+        <input name="id" [(ngModel)]="studentService.selectedStudent.id" placeholder="0" required>
+    </div>
+    <div>
+        <label>Subject: </label>
+        <input name="subject" [(ngModel)]="studentService.selectedStudent.subject" placeholder="Subject">
+    </div>
+    <div>
+        <label>Test Assigned: </label>
+        <input name="test" [(ngModel)]="studentService.selectedStudent.test" placeholder="Test assigned">
+    </div>
+    
+    <div>
+    <button type="submit" [disabled]="!studentForm.valid">Submit</button>
+    <button type="button" *ngIf="studentService.selectedStudent.$key!=null" (click)=onDelete(studentForm)>Delete</button>
+    <button type="button" (click)="resetForm()">Reset</button>
+    </div>
+    </form>
+
+
+<div>
+  <app-student></app-student>
+</div>

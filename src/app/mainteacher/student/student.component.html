@@ -1,0 +1,7 @@
+<h2>List of Students</h2>
+<ul class="list-group hover studentlist">
+ <li class="list-group-item" *ngFor='let student of studentlist' (click)="onItemClick(student)">
+  <span class="badge">{{student.id}}</span> {{student.name}}
+ </li>
+</ul>
+
